@@ -16,13 +16,13 @@ const Form = ({data, updateData, cotizarCripto, setCondicional}) => {
     }
 
 
-    const {/* cantidad, */ moneda, comprar} = data
+    const {moneda, comprar} = data
 
     const handleSubmit = e => {
         e.preventDefault()
 
         // VALIDAR
-        if( /* cantidad.trim() === '' || */ moneda.trim() === '' || comprar.trim() === '' ){
+        if( moneda.trim() === '' || comprar.trim() === '' ){
             setError(true);
 
             // Quitar el mensaje previo
@@ -37,6 +37,11 @@ const Form = ({data, updateData, cotizarCripto, setCondicional}) => {
 
         setCondicional(true);
 
+        // Reiniciar el form
+        updateData({
+            moneda: '',
+            comprar: ''
+        })
         
 
     }
@@ -53,14 +58,6 @@ const Form = ({data, updateData, cotizarCripto, setCondicional}) => {
 
                     {error? <Error /> : null }
 
-                {/*             <label className="font-bold">Cantidad</label>
-                    <input
-                        name='cantidad'
-                        value={cantidad}
-                        onChange={getInfo}
-                        type="number"
-                        className=' shadow-lg block w-full bg-gray-200 p-2 rounded my-2'
-                    /> */}
                     
                     <label className="font-bold">Moneda</label>
                     <br/>
@@ -81,7 +78,7 @@ const Form = ({data, updateData, cotizarCripto, setCondicional}) => {
 
                     <br/>
 
-                    <label className="font-bold">Comprar</label>
+                    <label className="font-bold">Criptomoneda</label>
                     <br/>
                     <select 
                         name='comprar'

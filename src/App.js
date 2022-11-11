@@ -7,7 +7,6 @@ import Answer from './components/Answer'
 function App() {
 
   const [ data, updateData ] = useState({
-   /*  cantidad: '', */
     moneda: '',
     comprar: ''
 })
@@ -51,6 +50,7 @@ const [ condicional, setCondicional ] = useState(false)
           
           <Answer
           resultado={resultado}
+          setCondicional={setCondicional}
         />
           
           }
