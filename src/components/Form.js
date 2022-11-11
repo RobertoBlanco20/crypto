@@ -89,7 +89,13 @@ const Form = ({data, updateData, cotizarCripto, setCondicional, condicional}) =>
                             <option value="">---Seleccione Criptomoneda---</option>
                             <option value="BTC">Bitcoin</option>
                             <option value="ETH">Etherium</option>
-                            <option value="CHL">Chainlink</option>
+                            <option value="BUSD">BUSD</option>
+                            <option value="USDT">Tether</option>
+                            <option value="MATIC">Polygon</option>
+                            <option value="BNB">Binace Coin</option>
+                            <option value="DOGE">Dogecoin</option>
+                            <option value="LINK">Chainlink</option>
+                            <option value="DAI">Dai</option>
                     </select>
                     
                     <br/>

@@ -28,6 +28,7 @@ const [ condicional, setCondicional ] = useState(false)
     const url = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${data.comprar}&tsyms=${data.moneda}`
     const resultado = await axios.get(url)
 
+
     
 
     setTimeout( () => {
@@ -37,6 +38,8 @@ const [ condicional, setCondicional ] = useState(false)
       /* Obtener la cotizacion de la API */
       setResultado(resultado.data.DISPLAY[data.comprar][data.moneda])
   }, 3000)
+
+  console.log(resultado)
     
  
 
