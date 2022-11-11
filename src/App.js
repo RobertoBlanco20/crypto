@@ -3,6 +3,8 @@ import axios from 'axios';
 import image from '../src/images/cripto.png'
 import Form from './components/Form'
 import Answer from './components/Answer'
+import Spinner from './components/Spinner'
+        
 
 function App() {
 
@@ -10,6 +12,8 @@ function App() {
     moneda: '',
     comprar: ''
 })
+
+const [cargando, setCargando] = useState(false)
 
 const [resultado, setResultado] = useState({})
 const [ condicional, setCondicional ] = useState(false)
@@ -19,11 +23,27 @@ const [ condicional, setCondicional ] = useState(false)
     
     if(data.moneda === '' || data.comprar === '') return;
 
+    setCargando(true)
+
     const url = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${data.comprar}&tsyms=${data.moneda}`
     const resultado = await axios.get(url)
-    setResultado(resultado.data.DISPLAY[data.comprar][data.moneda])
-    console.log(resultado.data.DISPLAY[data.comprar][data.moneda])
+
+    
+
+    setTimeout( () => {
+      /* Cargar el Spinner */
+      setCargando(false)
+
+      /* Obtener la cotizacion de la API */
+      setResultado(resultado.data.DISPLAY[data.comprar][data.moneda])
+  }, 3000)
+    
+ 
+
+
   }
+
+  
 
 
   return (
@@ -40,17 +60,20 @@ const [ condicional, setCondicional ] = useState(false)
       <div className='w-5/6 mx-auto lg:w-4/6'>
        
 
-        { !condicional  ?         
+        { !condicional  ?       
           <Form
             data={data}
             updateData={updateData} 
             cotizarCripto={cotizarCripto}
             setCondicional={setCondicional}
           /> : 
+
+          cargando ?   <Spinner /> :
           
           <Answer
           resultado={resultado}
           setCondicional={setCondicional}
+          condicional={condicional}
         />
           
           }

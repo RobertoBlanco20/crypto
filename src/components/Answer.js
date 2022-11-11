@@ -1,18 +1,16 @@
 import React, {Fragment} from 'react'
-import Button from './Button'
 
-const Answer = ({resultado, setCondicional}) => {
+const Answer = ({resultado, setCondicional, condicional}) => {
 
-/*     const handleUpdate = e => {
-        e.preventDefault()
-
-        setTimeout( () => {
-            setCondicional(false);
-        }, 4000)
+    const updateData = e =>{
         
-    } */
+        if(condicional){
+            setCondicional(false)
+        }
 
-    
+
+    }
+
     if(Object.keys(resultado).length === 0) return null;
     
     return ( 
@@ -33,10 +31,8 @@ const Answer = ({resultado, setCondicional}) => {
             </div>
 
 
-            <Button 
-                text='Volver'
-           /*      onClick={handleUpdate} */
-            />
+            <input onClick={updateData} type='submit' value='Volver' className='flex justify-center mx-auto w-full lg:w-3/6  border-2 mt-4 p-2 text-black font-bold bg-yellow-500 rounded hover:bg-yellow-600 cursor-pointer'/>
+
         </Fragment>
 
      );

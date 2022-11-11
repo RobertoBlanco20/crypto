@@ -2,7 +2,7 @@ import React, {useState, Fragment} from 'react';
 import Error from './Error'
 import Button from './Button'
 
-const Form = ({data, updateData, cotizarCripto, setCondicional}) => {
+const Form = ({data, updateData, cotizarCripto, setCondicional, condicional}) => {
 
 
 
@@ -31,6 +31,7 @@ const Form = ({data, updateData, cotizarCripto, setCondicional}) => {
             }, 4000)
             return
         }
+
 
         // Llamar a la funcion
         cotizarCripto()
