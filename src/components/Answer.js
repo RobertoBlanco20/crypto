@@ -34,7 +34,7 @@ const Answer = ({resultado, setCondicional, condicional}) => {
             </div>
 
 
-            <input onClick={updateData} type='submit' value='Volver' className='flex justify-center mx-auto w-full lg:w-3/6  border-2 mt-4 p-2 text-black font-bold bg-yellow-500 rounded hover:bg-yellow-600 cursor-pointer'/>
+            <input onClick={updateData} type='submit' value='Volver' className='flex justify-center mx-auto w-full lg:w-3/6 mb-6  border-2 mt-4 p-2 text-black font-bold bg-yellow-500 rounded hover:bg-yellow-600 cursor-pointer'/>
 
         </Fragment>
 
