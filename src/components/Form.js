@@ -1,13 +1,15 @@
 import React, {useState, Fragment} from 'react';
 import Error from './Error'
 import Button from './Button'
+import PropTypes from 'prop-types'
 
-const Form = ({data, updateData, cotizarCripto, setCondicional, condicional}) => {
+const Form = ({data, updateData, cotizarCripto, setCondicional}) => {
 
 
-
+    /* State que muestra el mensaje de error */
     const [ error, setError ] = useState(false)
 
+    /* Obtiene los valores */
     const getInfo = e => {
         updateData({
             ...data, 
@@ -16,6 +18,7 @@ const Form = ({data, updateData, cotizarCripto, setCondicional, condicional}) =>
     }
 
 
+    /* Destructuring */
     const {moneda, comprar} = data
 
     const handleSubmit = e => {
@@ -112,6 +115,10 @@ const Form = ({data, updateData, cotizarCripto, setCondicional, condicional}) =>
 
 
      );
+}
+
+Button.propTypes = {
+    text: PropTypes.string.isRequired
 }
  
 export default Form;

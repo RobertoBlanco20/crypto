@@ -1,7 +1,9 @@
 import React, {Fragment} from 'react'
 
+
 const Answer = ({resultado, setCondicional, condicional}) => {
 
+    /* Spinner */
     const updateData = e =>{
         
         if(condicional){
@@ -11,6 +13,7 @@ const Answer = ({resultado, setCondicional, condicional}) => {
 
     }
 
+    /* Si esta vacio no retorna nada */
     if(Object.keys(resultado).length === 0) return null;
     
     return ( 
