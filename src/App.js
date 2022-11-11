@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import axios from 'axios';
 import image from '../src/images/cripto.png'
 import Form from './components/Form'
@@ -7,14 +7,14 @@ import Answer from './components/Answer'
 function App() {
 
   const [ data, updateData ] = useState({
-    cantidad: '',
+   /*  cantidad: '', */
     moneda: '',
     comprar: ''
 })
 
 const [resultado, setResultado] = useState({})
+const [ condicional, setCondicional ] = useState(false)
 
-useEffect( () => {
 
   const cotizarCripto = async () =>  {
     
@@ -26,9 +26,6 @@ useEffect( () => {
     console.log(resultado.data.DISPLAY[data.comprar][data.moneda])
   }
 
-  cotizarCripto()
-
-}, [data.moneda , data.comprar] )
 
   return (
     
@@ -41,25 +38,26 @@ useEffect( () => {
         />
       </div>
       
-      <div className='w-5/6 mx-auto lg:w-2/6'>
-        <h1 className='text-4xl font-bold text-center'>Cotizá tu Cripto</h1>
+      <div className='w-5/6 mx-auto lg:w-4/6'>
+       
 
-        <Form
-          data={data}
-          updateData={updateData} 
+        { !condicional  ?         
+          <Form
+            data={data}
+            updateData={updateData} 
+            cotizarCripto={cotizarCripto}
+            setCondicional={setCondicional}
+          /> : 
           
-
-        />
-      </div>
-
-      <div className='w-5/6 mx-auto lg:w-2/6'>
-        <h1 className='text-4xl font-bold text-center'>Cotización</h1>
-
-        <Answer
+          <Answer
           resultado={resultado}
         />
+          
+          }
 
       </div>
+
+
     </main>
   );
 }
